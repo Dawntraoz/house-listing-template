@@ -6,7 +6,7 @@ This repository contains a house listing project including a listing page with a
 
 Built with [Nuxt](https://nuxt.com).
 
-## Setup
+## Setup, development & deployment
 
 Make sure to install dependencies:
 
@@ -16,7 +16,7 @@ Make sure to install dependencies:
 pnpm install
 ```
 
-## Development Server
+### Development Server
 
 Start the development server on `http://localhost:3000`:
 
@@ -24,7 +24,7 @@ Start the development server on `http://localhost:3000`:
 pnpm dev
 ```
 
-## Production
+### Deploy (Prod)
 
 Build the application for production:
 
@@ -39,3 +39,9 @@ pnpm preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+## Project decisions
+
+1. I used `app.vue` as layout with `<NuxtPage />` as the "`<slot />`" since there is only one layout in this application (see [Nuxt docs](https://nuxt.com/docs/4.x/directory-structure/app/layouts) for reference).
+
+2. [`UnoCSS`](https://unocss.dev/integrations/nuxt) was used for quick prototyping.
