@@ -45,3 +45,5 @@ Check out the [deployment documentation](https://nuxt.com/docs/getting-started/d
 1. I used `app.vue` as layout with `<NuxtPage />` as the "`<slot />`" since there is only one layout in this application (see [Nuxt docs](https://nuxt.com/docs/4.x/directory-structure/app/layouts) for reference).
 
 2. [`UnoCSS`](https://unocss.dev/integrations/nuxt) was used for quick prototyping.
+
+3. Use [CSS Modules](https://vuejs.org/api/sfc-css-features.html#css-modules) in combination with the `@apply` rule to avoid repetitive atomic classes when the styled element is repeated.
