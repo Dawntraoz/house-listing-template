@@ -5,4 +5,8 @@ export default defineNuxtConfig({
   modules: [
     '@unocss/nuxt',
   ],
+  runtimeConfig: {
+    baseURL: process.env.NUXT_BASE_URL || 'https://partnerapi.funda.nl/feeds/Aanbod.svc/json',
+    apiToken: process.env.NUXT_API_TOKEN || '',
+  }
 })
