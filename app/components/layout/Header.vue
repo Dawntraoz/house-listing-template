@@ -1,13 +1,18 @@
+<script setup lang="ts">
+const navigationLinks = [
+  { id: "search", name: "Find a house", path: "/search" },
+];
+</script>
+
 <template>
   <header class="bg-primary-50 text-white">
     <nav class="container mx-auto p-4 flex items-center justify-between gap-6">
-      <p class="font-semibold uppercase text-xl">Logo</p>
+      <NuxtLink to="/" class="font-semibold uppercase text-xl">Logo</NuxtLink>
       <ul class="flex items-center gap-2">
-        <li>
-          <NuxtLink to="/" :class="$style.link">Home</NuxtLink>
-        </li>
-        <li>
-          <NuxtLink to="/search" :class="$style.link">Find a house</NuxtLink>
+        <li v-for="link in navigationLinks" :key="`nav-${link.id}`">
+          <NuxtLink :to="link.path" :class="$style.link">{{
+            link.name
+          }}</NuxtLink>
         </li>
       </ul>
     </nav>

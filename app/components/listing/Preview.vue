@@ -76,12 +76,12 @@ const promoPhotos = computed(() => {
           {{ `€ ${listing.Prijs.Koopprijs} ${listing.Prijs.KoopAbbreviation}` }}
         </strong>
         <ul class="flex gap-4">
-          <li class="flex">
-            <ListingIconLivingArea />
+          <li class="flex gap-1">
+            <IconLivingArea />
             {{ listing.WoonOppervlakteTot }} m²
           </li>
-          <li class="flex">
-            <ListingIconPlotArea /> {{ listing.Perceeloppervlakte }} m²
+          <li class="flex gap-1">
+            <IconPlotArea /> {{ listing.Perceeloppervlakte }} m²
           </li>
         </ul>
         <p class="italic text-secondary-90">{{ listing.MakelaarNaam }}</p>
