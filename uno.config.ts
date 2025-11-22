@@ -38,7 +38,11 @@ export default defineConfig({
     presetTypography(),
     presetWebFonts({
       fonts: {
-        sans: 'Nunito Sans',
+        sans: {
+          name: 'Nunito Sans',
+          weights: ['400', '600'],
+          italic: true,
+        },
       },
     }),
   ],

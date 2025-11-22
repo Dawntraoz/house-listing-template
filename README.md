@@ -42,8 +42,27 @@ Check out the [deployment documentation](https://nuxt.com/docs/getting-started/d
 
 ## Project decisions
 
-1. I used `app.vue` as layout with `<NuxtPage />` as the "`<slot />`" since there is only one layout in this application (see [Nuxt docs](https://nuxt.com/docs/4.x/directory-structure/app/layouts) for reference).
+1. Uses `app.vue` as layout with `<NuxtPage />` as the "`<slot />`" since there is only one layout in this application (see [Nuxt docs](https://nuxt.com/docs/4.x/directory-structure/app/layouts) for reference).
 
-2. [`UnoCSS`](https://unocss.dev/integrations/nuxt) was used for quick prototyping.
+2. Styling:
 
-3. Use [CSS Modules](https://vuejs.org/api/sfc-css-features.html#css-modules) in combination with the `@apply` rule to avoid repetitive atomic classes when the styled element is repeated.
+   - [`UnoCSS`](https://unocss.dev/integrations/nuxt) was used for quick prototyping.
+   - [CSS Modules](https://vuejs.org/api/sfc-css-features.html#css-modules) in combination with the `@apply` rule to avoid repetitive atomic classes when the styled element is repeated or it is too verbose.
+
+3. It uses [universal rendering](https://nuxt.com/docs/4.x/guide/concepts/rendering#universal-rendering) (SSR + hydration) and leverages internal composables, such us [`useFetch`](https://nuxt.com/docs/4.x/getting-started/data-fetching#usefetch), to perform network requests.
+
+4. It adds the [@nuxt/image](https://image.nuxt.com/) module to improve image optimization.
+
+5. _Search_ page:
+
+   - Uses route `query` parameters combined with a reactive variable for listing pagination.
+   - Handles rendering of the `status` with values: `pending` (loading), `success` with data or empty, and `error`.
+
+6. It includes a custom error page.
+
+## Future Improvements
+
+1. API endpoints:
+
+   - Use the `pick` option to retrieve only the necessary information.
+   - Add a mapping method to ensure compatibility with other APIs while maintaining compatibility with the front end.
