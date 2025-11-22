@@ -1,11 +1,6 @@
 <script setup lang="ts">
 const props = defineProps<{ listing: Listing; order: number }>();
 
-const euroFormatter = new Intl.NumberFormat("en-EN", {
-  style: "currency",
-  currency: "EUR",
-  minimumFractionDigits: 0,
-});
 const fullAddress = computed(() => {
   return `${props.listing.Adres} ${props.listing.Postcode} ${props.listing.Woonplaats}`;
 });

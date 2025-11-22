@@ -48,17 +48,7 @@ watch(currentPage, (newPage) => {
       v-else-if="status === 'error'"
       class="flex flex-col items-center gap-4 mt-6"
     >
-      <IconError class="w-48 md:w-72" />
-      <p class="text-gray-700">
-        A {{ error?.statusCode }} error occurred:
-        <span class="italic">{{ error?.statusMessage }}</span>
-      </p>
-      <NuxtLink
-        to="/"
-        class="underline text-secondary-70 hover:text-secondary-90"
-      >
-        Go back home
-      </NuxtLink>
+      <ListingError :code="error?.statusCode" :message="error?.statusMessage" />
     </div>
   </div>
 </template>
