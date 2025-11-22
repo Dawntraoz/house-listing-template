@@ -21,7 +21,7 @@ defineProps<{
   >
     <swiper-slide v-for="(slide, index) in images" :key="index" class="">
       <NuxtImg
-        :src="slide"
+        :src="slide.replace('http://', 'https://')"
         class="justify-self-center align-self-center w-10/12 max-w-4xl h-full object-contain"
       />
     </swiper-slide>

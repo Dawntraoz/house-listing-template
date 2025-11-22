@@ -22,7 +22,7 @@ const promoPhotos = computed(() => {
         <NuxtImg
           class="row-span-2"
           :class="$style['image-base']"
-          :src="listing.FotoLarge"
+          :src="listing.FotoLarge.replace('http://', 'https://')"
           sizes="250px sm:400px md:600px"
           :alt="`Photo of ${fullAddress}, see listing for more details`"
           :loading="order > 2 ? 'lazy' : 'eager'"
@@ -34,7 +34,7 @@ const promoPhotos = computed(() => {
             :key="`imag-${photo}`"
             class="col-start-2"
             :class="`${$style['image-base']} row-start-${index + 1}`"
-            :src="photo"
+            :src="photo.replace('http://', 'https://')"
             :alt="`Additional photo ${
               index + 1
             } of ${fullAddress}, see listing for more details`"
@@ -60,7 +60,7 @@ const promoPhotos = computed(() => {
         <NuxtImg
           class="rounded-t-md sm:rounded-md"
           :class="$style['image-base']"
-          :src="listing.FotoMedium"
+          :src="listing.FotoMedium.replace('http://', 'https://')"
           :alt="`Photo of ${fullAddress}, see listing for more details`"
           :loading="order > 3 ? 'lazy' : 'eager'"
           placeholder

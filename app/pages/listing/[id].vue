@@ -60,7 +60,7 @@ const listingPhotos = (size: "small" | "medium" | "large" | "largest") => {
           $style['gallery-preview-image'],
           index === 0 && 'col-span-4 md:row-span-2 md:col-span-2',
         ]"
-        :src="photo"
+        :src="photo.replace('http://', 'https://')"
         :alt="`Additional photo ${index + 1} of ${fullAddress}`"
         placeholder
       />
