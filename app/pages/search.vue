@@ -13,7 +13,7 @@ watch(currentPage, (newPage) => {
 
 <template>
   <div class="max-w-4xl mx-auto py-4">
-    <h1 class="font-semibold text-2xl">Search results</h1>
+    <h1 class="font-semibold text-2xl">Listings for sale</h1>
     <p v-if="status === 'pending'">Loading...</p>
     <div v-else-if="status === 'success' && data?.listings.length === 0">
       <p>No listings found.</p>

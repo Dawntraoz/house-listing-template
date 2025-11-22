@@ -1,10 +1,14 @@
 <script setup lang="ts">
 const props = defineProps<{ listing: Listing; order: number }>();
 
+const euroFormatter = new Intl.NumberFormat("en-EN", {
+  style: "currency",
+  currency: "EUR",
+  minimumFractionDigits: 0,
+});
 const fullAddress = computed(() => {
   return `${props.listing.Adres} ${props.listing.Postcode} ${props.listing.Woonplaats}`;
 });
-
 const promoPhotos = computed(() => {
   return props.listing.PromoLabel.PromotionPhotos.slice(0, 2);
 });
@@ -73,7 +77,11 @@ const promoPhotos = computed(() => {
           <p>{{ `${listing.Postcode} ${listing.Woonplaats}` }}</p>
         </NuxtLink>
         <strong>
-          {{ `€ ${listing.Prijs.Koopprijs} ${listing.Prijs.KoopAbbreviation}` }}
+          {{
+            `${euroFormatter.format(listing.Prijs.Koopprijs)} ${
+              listing.Prijs.KoopAbbreviation
+            }`
+          }}
         </strong>
         <ul class="flex gap-4">
           <li class="flex gap-1">

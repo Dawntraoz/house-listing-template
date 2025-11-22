@@ -1,7 +1,5 @@
 <script setup lang="ts">
-const navigationLinks = [
-  { id: "search", name: "Find a house", path: "/search" },
-];
+const navigationLinks = [{ id: "search", name: "Buy a home", path: "/search" }];
 </script>
 
 <template>
