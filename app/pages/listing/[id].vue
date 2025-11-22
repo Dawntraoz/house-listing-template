@@ -8,17 +8,19 @@ const {
 } = await useFetch(`/api/listing/${route.params.id}`);
 
 const showMore = ref(false);
+const showGallery = ref(false);
 
 const fullAddress = computed(() => {
   return `${listing.value?.Adres} ${listing.value?.Postcode} ${listing.value?.Plaats}`;
 });
-const listingPhotos = (size: "small" | "medium" | "large") => {
+const listingPhotos = (size: "small" | "medium" | "large" | "largest") => {
   if (!listing.value) return [];
 
   const categoryMap = {
     small: 1,
     medium: 4,
     large: 6,
+    largest: 7,
   };
   const category = categoryMap[size];
 
@@ -48,7 +50,8 @@ const listingPhotos = (size: "small" | "medium" | "large") => {
       <li>Listing {{ listing.Adres }}</li>
     </ul>
     <div
-      class="grid grid-cols-4 md:grid-rows-2 max-w-6xl h-sm md:h-lg mx-auto gap-1 py-4"
+      class="grid grid-cols-4 grid-rows-[minmax(200px,2fr)_1fr] md:grid-rows-2 max-w-6xl h-sm md:h-lg mx-auto gap-1 py-4"
+      @click="showGallery = true"
     >
       <NuxtImg
         v-for="(photo, index) in listingPhotos('medium').slice(0, 5)"
@@ -90,6 +93,17 @@ const listingPhotos = (size: "small" | "medium" | "large") => {
       </div>
     </article>
   </template>
+  <section
+    v-if="showGallery"
+    class="fixed inset-0 bg-white z-20 flex items-center justify-center p-4"
+  >
+    <button @click="showGallery = false">
+      <IconClose
+        class="h-8 w-8 absolute top-4 md:top-8 right-4 md:right-8 cursor-pointer text-secondary-70 hover:text-secondary-90"
+      />
+    </button>
+    <ListingGallery :images="listingPhotos('large')" />
+  </section>
 </template>
 
 <style module>
