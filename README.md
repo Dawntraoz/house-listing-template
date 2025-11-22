@@ -60,9 +60,16 @@ Check out the [deployment documentation](https://nuxt.com/docs/getting-started/d
 
 6. It includes a custom error page.
 
+7. _Details_ page:
+
+   - Uses [`swiper`](https://swiperjs.com/vue) library for the image gallery slider.
+   - Uses an embed iframe of Google Maps to show the address.
+
 ## Future Improvements
 
 1. API endpoints:
 
    - Use the `pick` option to retrieve only the necessary information.
    - Add a mapping method to ensure compatibility with other APIs while maintaining compatibility with the front end.
+
+2. Image network loading on listings (search page) and swiper slider based on the user viewport and current slide.
