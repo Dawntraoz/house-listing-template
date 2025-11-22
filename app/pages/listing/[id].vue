@@ -65,8 +65,8 @@ const listingPhotos = (size: "small" | "medium" | "large" | "largest") => {
         placeholder
       />
     </div>
-    <article class="max-w-4xl mx-auto">
-      <header class="py-4 border-b border-gray-200">
+    <article class="grid md:grid-cols-2 max-w-4xl mx-auto">
+      <header class="py-4">
         <h1 class="text-3xl font-semibold">{{ listing.Adres }}</h1>
         <p class="text-gray-600 pb-2">
           {{ `${listing.Postcode} ${listing.Plaats}` }}
@@ -79,7 +79,21 @@ const listingPhotos = (size: "small" | "medium" | "large" | "largest") => {
           }}
         </strong>
       </header>
-      <div class="flex flex-col items-start gap-2 py-4">
+      <iframe
+        class="rounded-md border-none mb-4"
+        width="100%"
+        height="200"
+        loading="lazy"
+        allowfullscreen
+        :src="`https://www.google.com/maps?q=${fullAddress.replace(
+          ' ',
+          '+'
+        )}&output=embed`"
+      >
+      </iframe>
+      <div
+        class="md:col-span-2 flex flex-col items-start gap-2 py-4 border-t border-gray-200"
+      >
         <h2 class="text-2xl font-semibold">Description</h2>
         <p :class="!showMore && 'line-clamp-3'">
           {{ listing.VolledigeOmschrijving }}
