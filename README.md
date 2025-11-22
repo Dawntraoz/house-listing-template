@@ -2,7 +2,7 @@
 
 This repository contains a house listing project including a listing page with a search and a details page. The data was obtained from sample APIs, for which an API token is required.
 
-> If you do not have a valid API token, feel free to change the endpoints to read your own sample data.
+> You need a valid API token for Funda Partner APIs.
 
 Built with [Nuxt](https://nuxt.com).
 
@@ -14,6 +14,14 @@ Make sure to install dependencies:
 
 ```bash
 pnpm install
+```
+
+### Setup `.env` variables
+
+Copy `.env.example` to `.env`, and add your API Token:
+
+```bash
+cp .env.example .env
 ```
 
 ### Development Server
