@@ -25,6 +25,7 @@ const promoPhotos = computed(() => {
           :src="listing.FotoLarge.replace('http://', 'https://')"
           sizes="250px sm:400px md:600px"
           :alt="`Photo of ${fullAddress}, see listing for more details`"
+          :fetchpriority="order > 2 ? 'low' : 'high'"
           :loading="order > 2 ? 'lazy' : 'eager'"
           placeholder
         />
@@ -38,6 +39,7 @@ const promoPhotos = computed(() => {
             :alt="`Additional photo ${
               index + 1
             } of ${fullAddress}, see listing for more details`"
+            :fetchpriority="order > 2 ? 'low' : 'high'"
             :loading="order > 2 ? 'lazy' : 'eager'"
             placeholder
           />
@@ -62,6 +64,7 @@ const promoPhotos = computed(() => {
           :class="$style['image-base']"
           :src="listing.FotoMedium.replace('http://', 'https://')"
           :alt="`Photo of ${fullAddress}, see listing for more details`"
+          :fetchpriority="order > 3 ? 'low' : 'high'"
           :loading="order > 3 ? 'lazy' : 'eager'"
           placeholder
         />
@@ -96,5 +99,9 @@ const promoPhotos = computed(() => {
 <style module>
 .image-base {
   @apply w-full h-full object-cover;
+
+  &:not(:nth-child(1)) {
+    @apply h-[100px] md:h-[200px];
+  }
 }
 </style>

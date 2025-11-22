@@ -31,6 +31,16 @@ const listingPhotos = (size: "small" | "medium" | "large" | "largest") => {
     return [...acc, ...largeImages];
   }, []);
 };
+
+useHead({
+  title: `Listing at ${fullAddress.value}`,
+  meta: [
+    {
+      name: "description",
+      content: `Check the details of the listing at ${fullAddress.value}.`,
+    },
+  ],
+});
 </script>
 
 <template>
@@ -62,6 +72,8 @@ const listingPhotos = (size: "small" | "medium" | "large" | "largest") => {
         ]"
         :src="photo.replace('http://', 'https://')"
         :alt="`Additional photo ${index + 1} of ${fullAddress}`"
+        fetchpriority="high"
+        loading="eager"
         placeholder
       />
     </div>

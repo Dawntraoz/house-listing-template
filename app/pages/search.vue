@@ -9,6 +9,13 @@ const { data, status, error } = await useFetch("/api/listings", {
 watch(currentPage, (newPage) => {
   navigateTo({ query: { page: newPage } });
 });
+
+useHead({
+  title: "Listings for sale",
+  meta: [
+    { name: "description", content: "Browse our listings of houses for sale." },
+  ],
+});
 </script>
 
 <template>

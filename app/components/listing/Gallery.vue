@@ -19,11 +19,22 @@ defineProps<{
     navigation
     :pagination="{ type: 'fraction' }"
   >
-    <swiper-slide v-for="(slide, index) in images" :key="index" class="">
+    <swiper-slide
+      v-for="(slide, index) in images"
+      :key="index"
+      class="gallery-slide"
+    >
       <NuxtImg
         :src="slide.replace('http://', 'https://')"
-        class="justify-self-center align-self-center w-10/12 max-w-4xl h-full object-contain"
+        loading="lazy"
+        class="w-10/12 max-w-4xl h-full object-contain"
       />
     </swiper-slide>
   </swiper>
 </template>
+
+<style scoped>
+.swiper-slide.gallery-slide {
+  @apply flex items-center justify-center;
+}
+</style>
